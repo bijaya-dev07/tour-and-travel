@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Mountain, 
@@ -18,8 +18,7 @@ import {
   Phone,
   Mail,
   Clock,
-  Shield,
-  Compass
+  Shield,  
 } from "lucide-react";
 
 const teamMembers = [
@@ -99,8 +98,8 @@ export default function AboutPage() {
   return (
     <div className="bg-background text-foreground min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
+      <section className="relative min-h-125 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-br from-blue-600 via-purple-600 to-pink-600">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070')] bg-cover bg-center mix-blend-overlay opacity-30"></div>
         </div>
         
@@ -136,12 +135,12 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 px-4 lg:px-6 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-20 px-4 lg:px-6 bg-linear-to-b from-white to-gray-50">
         <div className="mx-auto max-w-7xl">
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <Card className="border-2 hover:border-blue-300 hover:shadow-xl transition-all duration-500 animate-fade-in-left overflow-hidden">
               <CardHeader>
-                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
+                <div className="w-16 h-16 mb-4 bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
                   <Target className="h-8 w-8 text-white" />
                 </div>
                 <CardTitle className="text-3xl">Our Mission</CardTitle>
@@ -158,7 +157,7 @@ export default function AboutPage() {
 
             <Card className="border-2 hover:border-purple-300 hover:shadow-xl transition-all duration-500 animate-fade-in-right overflow-hidden">
               <CardHeader>
-                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
+                <div className="w-16 h-16 mb-4 bg-linear-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
                   <Eye className="h-8 w-8 text-white" />
                 </div>
                 <CardTitle className="text-3xl">Our Vision</CardTitle>
@@ -177,19 +176,19 @@ export default function AboutPage() {
           {/* Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow animate-scale-in">
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">15+</div>
+              <div className="text-4xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">15+</div>
               <div className="text-muted-foreground">Years Experience</div>
             </div>
             <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow animate-scale-in animation-delay-200">
-              <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">50K+</div>
+              <div className="text-4xl font-bold bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">50K+</div>
               <div className="text-muted-foreground">Happy Travelers</div>
             </div>
             <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow animate-scale-in animation-delay-400">
-              <div className="text-4xl font-bold bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent mb-2">200+</div>
+              <div className="text-4xl font-bold bg-linear-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent mb-2">200+</div>
               <div className="text-muted-foreground">Tour Packages</div>
             </div>
             <div className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow animate-scale-in animation-delay-600">
-              <div className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent mb-2">98%</div>
+              <div className="text-4xl font-bold bg-linear-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent mb-2">98%</div>
               <div className="text-muted-foreground">Satisfaction Rate</div>
             </div>
           </div>
@@ -200,19 +199,19 @@ export default function AboutPage() {
       <section className="py-20 px-4 lg:px-6 bg-white">
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 px-4 py-2 text-sm font-medium text-blue-700 mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-blue-100 to-purple-100 px-4 py-2 text-sm font-medium text-blue-700 mb-4">
               <Clock className="h-4 w-4" />
               <span>Our Journey</span>
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Our Story</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              From humble beginnings to becoming Nepal's premier tour operator
+              From humble beginnings to becoming Nepals premier tour operator
             </p>
           </div>
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b from-blue-500 via-purple-500 to-pink-500"></div>
 
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
@@ -233,7 +232,7 @@ export default function AboutPage() {
                   </div>
                   
                   <div className="relative z-10">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    <div className="w-20 h-20 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
                       {milestone.year}
                     </div>
                   </div>
@@ -247,10 +246,10 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 px-4 lg:px-6 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-20 px-4 lg:px-6 bg-linear-to-br from-gray-50 to-blue-50">
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 px-4 py-2 text-sm font-medium text-purple-700 mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-purple-100 to-pink-100 px-4 py-2 text-sm font-medium text-purple-700 mb-4">
               <Sparkles className="h-4 w-4" />
               <span>What Drives Us</span>
             </div>
@@ -268,7 +267,7 @@ export default function AboutPage() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className={`w-16 h-16 mb-4 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                  <div className={`w-16 h-16 mb-4 bg-linear-to-br ${value.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                     <value.icon className="h-8 w-8 text-white" />
                   </div>
                   <CardTitle className="text-xl">{value.title}</CardTitle>
@@ -288,7 +287,7 @@ export default function AboutPage() {
       <section className="py-20 px-4 lg:px-6 bg-white">
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-100 to-yellow-100 px-4 py-2 text-sm font-medium text-orange-700 mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-orange-100 to-yellow-100 px-4 py-2 text-sm font-medium text-orange-700 mb-4">
               <Users className="h-4 w-4" />
               <span>The People Behind Your Adventure</span>
             </div>
@@ -306,10 +305,12 @@ export default function AboutPage() {
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="relative h-64 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                  <img 
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent z-10"></div>
+                  <Image 
                     src={member.image} 
                     alt={member.name}
+                    width={400}
+                    height={400}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
@@ -327,7 +328,7 @@ export default function AboutPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20 px-4 lg:px-6 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
+      <section className="py-20 px-4 lg:px-6 bg-linear-to-br from-blue-600 via-purple-600 to-pink-600">
         <div className="mx-auto max-w-6xl text-center">
           <Award className="h-16 w-16 mx-auto mb-6 text-white animate-float" />
           <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
@@ -335,7 +336,7 @@ export default function AboutPage() {
           </h2>
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
             Join thousands of satisfied travelers who have explored Nepal with us. 
-            Let's create your perfect journey together.
+            Lets create your perfect journey together.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
