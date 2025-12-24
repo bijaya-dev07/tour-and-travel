@@ -20,7 +20,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="flex flex-col items-center bg-[url('/linearBg.svg')] bg-cover text-gray-800 pb-20 text-sm">
+    <section className="flex bg-[#FAFAF9] flex-col items-center bg-[url('/linearBg.svg')] bg-cover text-gray-800 pb-20 text-sm">
       {/* Community Badge */}
       <div className="flex items-center gap-2 mt-32 px-4 py-2 rounded-full border border-indigo-200 text-xs bg-white/70 backdrop-blur">
         <Image

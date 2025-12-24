@@ -24,11 +24,23 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll while the mobile menu is open.
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50  ${
         isScrolled
-          ? "bg-white/85 text-slate-900 shadow-lg backdrop-blur-lg"
+          ? "bg-amber-50 text-slate-900 shadow-lg backdrop-blur-lg"
           : "bg-transparent text-white"
       }`}
     >
@@ -55,36 +67,35 @@ export default function Navbar() {
               key={link.name}
               href={link.path}
               className={`group flex flex-col items-center gap-1 text-lg font-medium ${
-                isScrolled ? "text-slate-800" : "text-white"
+                isScrolled ? "text-slate-800" : "text-black"
               }`}
             >
               {link.name}
               <span
                 className={`${
                   isScrolled ? "bg-slate-800" : "bg-white"
-                } h-0.5 w-0 group-hover:w-full transition-all duration-300 rounded-full`}
+                } h-0.5 w-0 group-hover:w-full  rounded-full`}
               ></span>
             </Link>
           ))}
-         
         </div>
 
         {/* Desktop Right */}
         <div className="hidden md:flex items-center gap-4">
           <button
-            className={`flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300 ${
+            className={`flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium  ${
               isScrolled
                 ? "border-slate-200 bg-white text-slate-900 shadow-sm hover:shadow"
-                : "border-white/40 bg-white/10 text-white hover:bg-white/20"
+                : " border border-gray-400 bg-amber-50 text-black hover:bg-white/20"
             }`}
           >
             <Search className="h-4 w-4" /> Explore
           </button>
           <button
-            className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${
+            className={`rounded-full px-5 py-2 text-sm font-semibold transition-all  ${
               isScrolled
                 ? "bg-slate-900 text-white hover:bg-slate-800"
-                : "bg-white text-slate-900 hover:bg-slate-100"
+                : "bg-white border border-gray-400 text-slate-900 hover:bg-slate-100"
             }`}
           >
             Login
@@ -106,20 +117,28 @@ export default function Navbar() {
           ) : (
             <Menu
               className={`h-6 w-6 ${
-                isScrolled ? "text-slate-900" : "text-white"
+                isScrolled ? "text-slate-900" : "text-black"
               }`}
             />
           )}
         </button>
       </div>
 
+      {/* Mobile Overlay */}
+      <div
+        className={`md:hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300 ${
+          isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed inset-0 flex flex-col bg-white text-slate-900 transition-transform duration-500 ${
+        className={`md:hidden fixed inset-y-0 left-0 flex w-5/6 max-w-sm flex-col bg-white text-slate-900 shadow-2xl transition-transform duration-500 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between px-5 py-4 shadow-sm">
+        <div className="flex items-center justify-between px-5 py-4 shadow-sm bg-linear-to-r from-white via-amber-50 to-orange-50">
           <Link
             href="/"
             className="flex items-center gap-3"
@@ -131,6 +150,7 @@ export default function Navbar() {
               width={110}
               height={32}
               className="h-8 w-auto"
+              style={{ width: "auto", height: "auto" }}
             />
           </Link>
           <button onClick={() => setIsMenuOpen(false)} aria-label="Close menu">
@@ -138,13 +158,22 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex-1 space-y-4 px-6 py-8">
+        <div className="flex-1 space-y-5 px-6 py-8">
+          <div className="rounded-2xl bg-linear-to-r from-orange-100 via-amber-50 to-white p-4 shadow-sm">
+            <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide">
+              Plan your trip
+            </p>
+            <p className="text-base font-semibold text-slate-900 mt-1">
+              Find epic Himalayan escapes tailored for you.
+            </p>
+          </div>
+
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.path}
               onClick={() => setIsMenuOpen(false)}
-              className="block text-lg font-medium"
+              className="block text-lg font-semibold text-slate-900"
             >
               {link.name}
             </Link>
@@ -152,10 +181,13 @@ export default function Navbar() {
         </div>
 
         <div className="flex flex-col gap-3 px-6 pb-8">
-          <button className="inline-flex items-center gap-2 rounded-full border border-slate-900 px-4 py-2 text-sm font-semibold hover:bg-slate-900 hover:text-white transition-all">
-            <Mountain className="h-4 w-4" /> Plan a Trip
+          <button className="inline-flex items-center justify-between gap-2 rounded-2xl border border-slate-200 px-4 py-3 text-sm font-semibold shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-transform">
+            <span className="inline-flex items-center gap-2">
+              <Mountain className="h-4 w-4" /> Explore trips
+            </span>
+            <span className="text-xs text-slate-500">New</span>
           </button>
-          <button className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white hover:bg-slate-800 transition-all">
+          <button className="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 transition-colors">
             Login
           </button>
         </div>
