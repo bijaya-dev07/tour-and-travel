@@ -23,10 +23,10 @@ import badgeIcon from './badgeIcon.svg'
 import menuIcon from './menuIcon.svg'
 import closeMenu from './closeMenu.svg'
 import guestsIcon from './guestsIcon.svg'
-import roomImg1 from './roomImg1.png'
-import roomImg2 from './roomImg2.png'
-import roomImg3 from './roomImg3.png'
-import roomImg4 from './roomImg4.png'
+import destination1 from './destination1.jpg'
+import destination2 from './destination2.jpg'
+import destination3 from './destination3.jpg'
+import destination4 from './destination4.jpg'
 import regImage from './regImage.png'
 import exclusiveOfferCardImg1 from "./exclusiveOfferCardImg1.png";
 import exclusiveOfferCardImg2 from "./exclusiveOfferCardImg2.png";
@@ -72,9 +72,13 @@ export const assets = {
     uploadArea,
     totalBookingIcon,
     totalRevenueIcon,
+    destination1,
+    destination2,
+    destination3,
+    destination4,
 }
 
-export const cities = [
+export const destinations = [
     "Pokhara",
     "Kathmandu",
     "Chitwan",
@@ -148,55 +152,91 @@ export const hotelDummyData = {
     "__v": 0
 }
 
-// Rooms Dummy Data
-export const roomsDummyData = [
+// Tours Dummy Data (Travel Destinations)
+export const toursDummyData = [
     {
-        "_id": "67f7647c197ac559e4089b96",
-        "hotel": hotelDummyData,
-        "roomType": "Double Bed",
-        "pricePerNight": 399,
-        "amenities": ["Room Service", "Mountain View", "Pool Access"],
-        "images": [roomImg1, roomImg2, roomImg3, roomImg4],
-        "isAvailable": true,
-        "createdAt": "2025-04-10T06:26:04.013Z",
-        "updatedAt": "2025-04-10T06:26:04.013Z",
-        "__v": 0
+        _id: "tour_everest_base_camp",
+        title: "Everest Base Camp Trek",
+        destination: "Khumbu (Everest Region)",
+        durationDays: 14,
+        pricePerPerson: 1499,
+        difficulty: "Challenging",
+        bestSeason: ["Mar-May", "Sep-Nov"],
+        highlights: [
+            "Panoramic Himalayan vistas",
+            "Sherpa culture and monasteries",
+            "Iconic Everest Base Camp",
+            "Scenic flight to Lukla"
+        ],
+        images: [destination1, destination2, destination3, destination4],
+        isAvailable: true,
+        description: "A legendary trek through the heart of the Himalayas to the base of the world's highest peak, blending adventure with rich Sherpa culture.",
+        createdAt: "2025-04-10T06:26:04.013Z",
+        updatedAt: "2025-04-10T06:26:04.013Z",
+        __v: 0
     },
     {
-        "_id": "67f76452197ac559e4089b8e",
-        "hotel": hotelDummyData,
-        "roomType": "Double Bed",
-        "pricePerNight": 299,
-        "amenities": ["Room Service", "Mountain View", "Pool Access"],
-        "images": [roomImg2, roomImg3, roomImg4, roomImg1],
-        "isAvailable": true,
-        "createdAt": "2025-04-10T06:25:22.593Z",
-        "updatedAt": "2025-04-10T06:25:22.593Z",
-        "__v": 0
+        _id: "tour_annapurna_circuit",
+        title: "Annapurna Circuit Trek",
+        destination: "Annapurna Region",
+        durationDays: 12,
+        pricePerPerson: 1299,
+        difficulty: "Moderate to Challenging",
+        bestSeason: ["Mar-May", "Sep-Nov"],
+        highlights: [
+            "Thorong La Pass crossing",
+            "Diverse landscapes and villages",
+            "Hot springs at Tatopani",
+            "Spectacular Annapurna massif views"
+        ],
+        images: [destination2, destination3, destination4, destination1],
+        isAvailable: true,
+        description: "A classic Himalayan loop offering dramatic mountain scenery, cultural immersion, and varied terrain from lush valleys to high passes.",
+        createdAt: "2025-04-10T06:25:22.593Z",
+        updatedAt: "2025-04-10T06:25:22.593Z",
+        __v: 0
     },
     {
-        "_id": "67f76406197ac559e4089b82",
-        "hotel": hotelDummyData,
-        "roomType": "Double Bed",
-        "pricePerNight": 249,
-        "amenities": ["Free WiFi", "Free Breakfast", "Room Service"],
-        "images": [roomImg3, roomImg4, roomImg1, roomImg2],
-        "isAvailable": true,
-        "createdAt": "2025-04-10T06:24:06.285Z",
-        "updatedAt": "2025-04-10T06:24:06.285Z",
-        "__v": 0
+        _id: "tour_pokhara_getaway",
+        title: "Pokhara Lakeside Getaway",
+        destination: "Pokhara",
+        durationDays: 3,
+        pricePerPerson: 249,
+        difficulty: "Easy",
+        bestSeason: ["Year-round"],
+        highlights: [
+            "Phewa Lake boating",
+            "Peace Pagoda sunset",
+            "Paragliding (optional)",
+            "Cafes and lakeside strolls"
+        ],
+        images: [destination3, destination4, destination1, destination2],
+        isAvailable: true,
+        description: "Relax by the lake with gentle adventures and serene mountain backdrops—perfect for couples and families.",
+        createdAt: "2025-04-10T06:24:06.285Z",
+        updatedAt: "2025-04-10T06:24:06.285Z",
+        __v: 0
     },
     {
-        "_id": "67f763d8197ac559e4089b7a",
-        "hotel": hotelDummyData,
-        "roomType": "Single Bed",
-        "pricePerNight": 199,
-        "amenities": ["Free WiFi", "Room Service", "Pool Access"],
-        "images": [roomImg4, roomImg1, roomImg2, roomImg3],
-        "isAvailable": true,
-        "createdAt": "2025-04-10T06:23:20.252Z",
-        "updatedAt": "2025-04-10T06:23:20.252Z",
-        "__v": 0
+        _id: "tour_chitwan_safari",
+        title: "Chitwan Jungle Safari",
+        destination: "Chitwan National Park",
+        durationDays: 2,
+        pricePerPerson: 199,
+        difficulty: "Easy",
+        bestSeason: ["Oct-Mar"],
+        highlights: [
+            "Jeep safari",
+            "Rhino and bird watching",
+            "Tharu cultural program",
+            "Canoe ride on Rapti River"
+        ],
+        images: [destination4, destination1, destination2, destination3],
+        isAvailable: true,
+        description: "Wildlife encounters in lush subtropical forests with guided safaris and authentic Tharu cultural experiences.",
+        createdAt: "2025-04-10T06:23:20.252Z",
+        updatedAt: "2025-04-10T06:23:20.252Z",
+        __v: 0
     }
 ]
 
@@ -207,7 +247,7 @@ export const userBookingsDummyData = [
     {
         "_id": "67f76839994a731e97d3b8ce",
         "user": userDummyData,
-        "room": roomsDummyData[1],
+        "room": toursDummyData[1],
         "hotel": hotelDummyData,
         "checkInDate": "2025-04-30T00:00:00.000Z",
         "checkOutDate": "2025-05-01T00:00:00.000Z",
@@ -223,7 +263,7 @@ export const userBookingsDummyData = [
     {
         "_id": "67f76829994a731e97d3b8c3",
         "user": userDummyData,
-        "room": roomsDummyData[0],
+        "room": toursDummyData[0],
         "hotel": hotelDummyData,
         "checkInDate": "2025-04-27T00:00:00.000Z",
         "checkOutDate": "2025-04-28T00:00:00.000Z",
@@ -239,7 +279,7 @@ export const userBookingsDummyData = [
     {
         "_id": "67f76810994a731e97d3b8b4",
         "user": userDummyData,
-        "room": roomsDummyData[3],
+        "room": toursDummyData[3],
         "hotel": hotelDummyData,
         "checkInDate": "2025-04-11T00:00:00.000Z",
         "checkOutDate": "2025-04-12T00:00:00.000Z",
