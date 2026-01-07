@@ -1,18 +1,26 @@
-import React from 'react'
-import AboutPage from './about/page'
-import Navbar from './Navbar/navbar'
-import HeroSection from './hero/Hero'
-import TopDestination from './topdestination/TopDestination'
+import React from "react";
+import Navbar from "./Navbar/navbar";
+import HeroSection from "./hero/Hero";
+import TopDestination from "./topdestination/TopDestination";
+import ExclusiveOffers from "./exclusive-offers/ExclusiveOffers";
+import Gallery from "./gallery/Gallery";
+import OurServices from "./services/OurServices";
+import Newsletter from "./newsletter/Newsletter";
+import Footer from "./Footer/Footer";
 
 const page = () => {
   return (
     <div>
       <Navbar />
       <HeroSection />
+      <OurServices />
       <TopDestination />
-      <AboutPage />
+      <ExclusiveOffers />
+      <Gallery />
+      <Newsletter />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

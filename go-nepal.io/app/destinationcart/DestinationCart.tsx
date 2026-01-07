@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Image, { type StaticImageData } from "next/image";
 import {
@@ -40,17 +41,20 @@ export default function DestinationCard({ tour }: { tour: Tour }) {
   // Difficulty color mapping
   const difficultyColors: Record<string, string> = {
     Easy: "text-green-600 bg-green-50",
-    Moderate: "text-amber-700 bg-amber-100",
+    Moderate: "text-[#F4A261] bg-[#F4A261]/10",
     Difficult: "text-red-600 bg-red-50",
     Expert: "text-purple-600 bg-purple-50",
   };
 
   // Determine badge color based on difficulty
   const difficultyColor =
-    difficultyColors[tour.difficulty] || "text-gray-600 bg-gray-50";
+    difficultyColors[tour.difficulty] || "text-[#6B7280] bg-gray-50";
 
   return (
-    <Card className="group relative overflow-hidden border border-amber-100 shadow-lg rounded-2xl bg-white">
+    <Card className="group relative overflow-hidden border border-[#F4A261]/20 shadow-lg rounded-2xl bg-white hover:shadow-xl transition-shadow duration-300">
+      <Link href={`/destination/${tour._id}`} className="absolute inset-0 z-10">
+        <span className="sr-only">View {tour.title}</span>
+      </Link>
       {/* Image Container with linear Overlay */}
       <div className="relative h-56 sm:h-64 md:h-72 w-full overflow-hidden rounded-t-2xl">
         {cover && (
@@ -59,7 +63,7 @@ export default function DestinationCard({ tour }: { tour: Tour }) {
             alt={tour.title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             priority={false}
           />
         )}
@@ -67,45 +71,45 @@ export default function DestinationCard({ tour }: { tour: Tour }) {
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
 
         {/* Price Badge (smooth in on desktop hover) */}
-        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-amber-100 transition-all duration-300 ease-out opacity-100 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0">
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-[#F4A261]/20 transition-all duration-300 ease-out opacity-100 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 z-20">
           <div className="flex items-center gap-1">
-            <span className="text-lg font-bold text-slate-900">
+            <span className="text-lg font-bold text-[#1F2933]">
               ${tour.pricePerPerson}
             </span>
-            <span className="text-xs text-slate-600">/person</span>
+            <span className="text-xs text-[#6B7280]">/person</span>
           </div>
         </div>
 
         {/* Difficulty Badge */}
         <div
-          className={`absolute top-4 left-4 rounded-full px-3 py-1 text-xs font-semibold ${difficultyColor}`}
+          className={`absolute top-4 left-4 rounded-full px-3 py-1 text-xs font-semibold ${difficultyColor} z-20`}
         >
           {tour.difficulty}
         </div>
 
         {/* Rating Badge */}
         {tour.rating && (
-          <div className="absolute bottom-4 left-4 flex items-center gap-1 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1 border border-amber-100">
-            <Star className="w-4 h-4 fill-amber-400 text-amber-500" />
-            <span className="font-semibold text-slate-900">{tour.rating}</span>
+          <div className="absolute bottom-4 left-4 flex items-center gap-1 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1 border border-[#F4A261]/20 z-20">
+            <Star className="w-4 h-4 fill-[#F4A261] text-[#F4A261]" />
+            <span className="font-semibold text-[#1F2933]">{tour.rating}</span>
           </div>
         )}
       </div>
 
-      <CardHeader className="pt-6 pb-3">
+      <CardHeader className="pt-6 pb-3 relative">
         <div className="flex justify-between items-start">
           <div className="space-y-2">
-            <CardTitle className="text-xl font-bold text-slate-900 line-clamp-1">
+            <CardTitle className="text-xl font-bold text-[#1F2933] line-clamp-1 group-hover:text-[#F4A261] transition-colors">
               {tour.title}
             </CardTitle>
-            <CardDescription className="flex items-center gap-1 text-slate-600">
+            <CardDescription className="flex items-center gap-1 text-[#6B7280]">
               <MapPin className="w-4 h-4" />
               <span className="text-sm font-medium">{tour.destination}</span>
             </CardDescription>
           </div>
           {/* Group Size */}
           {tour.groupSize && (
-            <div className="flex items-center gap-1 text-slate-500">
+            <div className="flex items-center gap-1 text-[#6B7280]">
               <Users className="w-5 h-5" />
               <span className="text-sm font-medium">{tour.groupSize}</span>
             </div>
@@ -113,16 +117,16 @@ export default function DestinationCard({ tour }: { tour: Tour }) {
         </div>
       </CardHeader>
 
-      <CardContent className="pb-4">
+      <CardContent className="pb-4 relative">
         {/* Duration and Season */}
         <div className="flex flex-wrap gap-4 mb-4">
           <div className="flex items-center gap-2">
-            <div className="p-2 bg-amber-50 rounded-lg">
-              <Calendar className="w-4 h-4 text-amber-600" />
+            <div className="p-2 bg-[#F4A261]/10 rounded-lg">
+              <Calendar className="w-4 h-4 text-[#F4A261]" />
             </div>
             <div>
-              <div className="text-xs text-slate-500">Duration</div>
-              <div className="font-semibold text-slate-900">
+              <div className="text-xs text-[#6B7280]">Duration</div>
+              <div className="font-semibold text-[#1F2933]">
                 {tour.durationDays} days
               </div>
             </div>
@@ -133,8 +137,8 @@ export default function DestinationCard({ tour }: { tour: Tour }) {
               <TrendingUp className="w-4 h-4 text-emerald-600" />
             </div>
             <div>
-              <div className="text-xs text-slate-500">Best Season</div>
-              <div className="font-semibold text-slate-900 line-clamp-1">
+              <div className="text-xs text-[#6B7280]">Best Season</div>
+              <div className="font-semibold text-[#1F2933] line-clamp-1">
                 {tour.bestSeason.join(", ")}
               </div>
             </div>
@@ -146,15 +150,15 @@ export default function DestinationCard({ tour }: { tour: Tour }) {
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <Mountain className="w-5 h-5 text-slate-400" />
-              <h4 className="font-semibold text-slate-900">Highlights</h4>
+              <h4 className="font-semibold text-[#1F2933]">Highlights</h4>
             </div>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {tour.highlights.slice(0, 4).map((h, idx) => (
                 <li
                   key={idx}
-                  className="flex items-center gap-2 text-sm text-slate-600"
+                  className="flex items-center gap-2 text-sm text-[#6B7280]"
                 >
-                  <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
+                  <div className="w-1.5 h-1.5 bg-[#F4A261] rounded-full" />
                   <span className="line-clamp-1">{h}</span>
                 </li>
               ))}
@@ -163,7 +167,7 @@ export default function DestinationCard({ tour }: { tour: Tour }) {
         ) : null}
       </CardContent>
 
-      <CardFooter className="border-t pt-4 flex items-center justify-between">
+      <CardFooter className="border-t pt-4 flex items-center justify-between relative z-20">
         <div className="flex items-center gap-2">
           <div
             className={`w-3 h-3 rounded-full ${
@@ -180,7 +184,7 @@ export default function DestinationCard({ tour }: { tour: Tour }) {
         </div>
         <Button
           variant="default"
-          className="px-6 py-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-lg transition-colors duration-200"
+          className="px-6 py-2 bg-[#21AEC0] hover:bg-[#1a8b99] text-white font-semibold rounded-lg transition-colors duration-200"
           disabled={!tour.isAvailable}
         >
           {tour.isAvailable ? "Book Now" : "Notify Me"}

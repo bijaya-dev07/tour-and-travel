@@ -37,6 +37,7 @@ import listIcon from "./listIcon.svg";
 import uploadArea from "./uploadArea.svg";
 import totalBookingIcon from "./totalBookingIcon.svg";
 import totalRevenueIcon from "./totalRevenueIcon.svg";
+import hero from "./hero.jpg";
 
 
 export const assets = {
@@ -76,6 +77,7 @@ export const assets = {
     destination2,
     destination3,
     destination4,
+    hero
 }
 
 export const destinations = [

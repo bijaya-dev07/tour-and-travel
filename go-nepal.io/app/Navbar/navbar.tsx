@@ -92,8 +92,8 @@ export default function Navbar() {
           </button>
 
           <button
-            className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
-              isScrolled ? "bg-slate-900 text-white" : "bg-white text-slate-900"
+            className={`rounded-full px-5 py-2 text-sm font-medium border border-gray-400 transition-colors ${
+              isScrolled ? "bg-slate-900 text-white" : "bg-amber-50 text-slate-900"
             }`}
           >
             Login
