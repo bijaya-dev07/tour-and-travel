@@ -4,7 +4,7 @@ import HeroSection from "./hero/Hero";
 import TopDestination from "./topdestination/TopDestination";
 import ExclusiveOffers from "./exclusive-offers/ExclusiveOffers";
 import Gallery from "./gallery/Gallery";
-import OurServices from "./services/OurServices";
+import OurServices from "@/components/OurServices";
 import Newsletter from "./newsletter/Newsletter";
 import Footer from "./Footer/Footer";
 
