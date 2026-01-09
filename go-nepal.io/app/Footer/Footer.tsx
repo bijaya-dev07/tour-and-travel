@@ -30,8 +30,13 @@ export default function Footer() {
           <div className="space-y-6">
             <Link href="/" className="inline-block">
                <div className="flex items-center gap-2">
-                <Image src={assets.logo} alt="Go Nepal Logo" width={40} height={40} className="w-10 h-10" />
-                <span className="text-2xl font-bold text-slate-900 tracking-tight">Go<span className="text-[#21AEC0]">Nepal</span></span>
+                <Image 
+                  src="/gonepal.png" 
+                  alt="Go Nepal Logo" 
+                  width={150} 
+                  height={50} 
+                  className="h-12 w-auto object-contain" 
+                />
                </div>
             </Link>
             <p className="text-slate-600 leading-relaxed">
