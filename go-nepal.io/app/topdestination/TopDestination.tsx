@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import DestinationCart from "../destinationcart/DestinationCart";
+import DestinationCart from "../destinationcart/topdestination/DestinationCart";
 import type { StaticImageData } from "next/image";
 import { toursDummyData } from "@/components/assets/assets";
 import { Button } from "@/components/ui/button";

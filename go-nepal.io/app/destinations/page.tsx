@@ -3,7 +3,7 @@
 import React from "react";
 import Navbar from "../Navbar/navbar";
 import Footer from "../Footer/Footer";
-import DestinationCart from "../destinationcart/DestinationCart";
+import DestinationCart from "../destinationcart/topdestination/DestinationCart";
 import { toursDummyData } from "@/components/assets/assets";
 import { assets } from "@/components/assets/assets";
 import Image from "next/image";
